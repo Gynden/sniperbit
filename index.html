@@ -1,60 +1,39 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sniper Bit</title>
-  <style>
-    body {
-      background-color: #1e1e2f;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-    }
-    h1 {
-      color: #a76eff;
-    }
-    .box {
-      background-color: #2e2e3f;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 20px;
-      box-shadow: 0 0 10px #a76eff33;
-    }
-    .info {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Sniper Bit - Painel Web</h1>
+  <div class="container">
+    <h1>Sniper Bit</h1>
+    <form id="login-form">
+      <input type="email" placeholder="E-mail IQ Option" required />
+      <input type="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+    </form>
 
-  <div class="box">
-    <h2>Modo de Operação</h2>
-    <div class="info">Conservador | Moderado | Agressivo</div>
+    <div class="panel" style="display:none;">
+      <h2>Modo de Operação</h2>
+      <select id="mode">
+        <option value="conservador">Conservador</option>
+        <option value="moderado">Moderado</option>
+        <option value="agressivo">Agressivo</option>
+      </select>
+
+      <h3>Configurações</h3>
+      <label>Stake: <input id="stake" type="number" value="1" /></label>
+      <label>Stop Win: <input id="stopWin" type="number" value="2" /></label>
+      <label>Stop Loss: <input id="stopLoss" type="number" value="2" /></label>
+
+      <button id="start">Iniciar Robô</button>
+      <button id="stop">Parar Robô</button>
+    </div>
   </div>
 
-  <div class="box">
-    <h2>Meta de Ganho / Limite de Perda</h2>
-    <div class="info">R$2 / R$2 (Conservador)<br>R$4 / R$4 (Moderado)<br>R$6 / R$6 (Agressivo)</div>
-  </div>
-
-  <div class="box">
-    <h2>Lucro de Hoje</h2>
-    <div class="info">R$1.505,84</div>
-  </div>
-
-  <div class="box">
-    <h2>Total Acumulado</h2>
-    <div class="info">R$22.599,96</div>
-  </div>
-
-  <div class="box">
-    <h2>Lucro Mensal (Julho/2025)</h2>
-    <div class="info">R$21.330,73</div>
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
