@@ -1,33 +1,32 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sniper Bit</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sniper Bit</title>
+  <style>
+    body { background-color: #1e1e1e; color: #fff; font-family: Arial, sans-serif; padding: 20px; }
+    input, button { margin: 5px 0; padding: 10px; width: 100%; max-width: 300px; }
+    button { cursor: pointer; background-color: #6a0dad; color: white; border: none; }
+    #dashboard { margin-top: 30px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sniper Bit Painel</h1>
+  <h2>Sniper Bit - Login</h2>
+  <div id="login">
+    <input id="email" type="email" placeholder="E-mail IQ Option" />
+    <input id="senha" type="password" placeholder="Senha" />
+    <button onclick="fazerLogin()">Login</button>
+  </div>
 
-        <div class="login">
-            <input type="text" id="email" placeholder="Email da conta IQ Option">
-            <input type="password" id="senha" placeholder="Senha">
-            <button onclick="fazerLogin()">Login</button>
-        </div>
+  <div id="dashboard" style="display:none;">
+    <h3>Saldo: <span id="saldo">Carregando...</span></h3>
+    <button onclick="startBot('conservador')">Modo Conservador</button>
+    <button onclick="startBot('moderado')">Modo Moderado</button>
+    <button onclick="startBot('agressivo')">Modo Agressivo</button>
+  </div>
 
-        <div id="dashboard" style="display:none;">
-            <p>💰 Saldo: <span id="saldo">--</span></p>
-
-            <div class="modos">
-                <button onclick="startBot('conservador')">Conservador</button>
-                <button onclick="startBot('moderado')">Moderado</button>
-                <button onclick="startBot('agressivo')">Agressivo</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
