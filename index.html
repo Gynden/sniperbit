@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniper Bit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>SNIPER BIT</h1>
+        <div class="balance-box">
+            <span class="label">VIRTUAL</span>
+            <h2 id="balance">$20,00</h2>
+            <p>Lucro: <span id="profit">$0,00</span></p>
+        </div>
+        <div class="mode-select">
+            <p>Modo de operação:</p>
+            <label><input type="radio" name="mode" value="conservador"> Conservador</label>
+            <label><input type="radio" name="mode" value="moderado"> Moderado</label>
+            <label><input type="radio" name="mode" value="agressivo"> Agressivo</label>
+        </div>
+        <button onclick="startBot()">Iniciar Robô</button>
+        <div class="stats">
+            <p>Perdas: <span id="losses">0</span></p>
+            <p>Taxa de Acerto: <span id="accuracy">0%</span></p>
+        </div>
+        <table>
+            <thead>
+                <tr><th>ENTRADA</th><th>SAÍDA</th><th>PREÇO</th><th>LP</th></tr>
+            </thead>
+            <tbody id="history"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
