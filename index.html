@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <h1>SNIPER BIT</h1>
-        <div class="balance-box">
-            <span class="label">VIRTUAL</span>
-            <h2 id="balance">$20,00</h2>
-            <p>Lucro: <span id="profit">$0,00</span></p>
+    <div class="container">
+        <h1>Sniper Bit Painel</h1>
+
+        <div class="login">
+            <input type="text" id="email" placeholder="Email da conta IQ Option">
+            <input type="password" id="senha" placeholder="Senha">
+            <button onclick="fazerLogin()">Login</button>
         </div>
-        <div class="mode-select">
-            <p>Modo de operação:</p>
-            <label><input type="radio" name="mode" value="conservador"> Conservador</label>
-            <label><input type="radio" name="mode" value="moderado"> Moderado</label>
-            <label><input type="radio" name="mode" value="agressivo"> Agressivo</label>
+
+        <div id="dashboard" style="display:none;">
+            <p>💰 Saldo: <span id="saldo">--</span></p>
+
+            <div class="modos">
+                <button onclick="startBot('conservador')">Conservador</button>
+                <button onclick="startBot('moderado')">Moderado</button>
+                <button onclick="startBot('agressivo')">Agressivo</button>
+            </div>
         </div>
-        <button onclick="startBot()">Iniciar Robô</button>
-        <div class="stats">
-            <p>Perdas: <span id="losses">0</span></p>
-            <p>Taxa de Acerto: <span id="accuracy">0%</span></p>
-        </div>
-        <table>
-            <thead>
-                <tr><th>ENTRADA</th><th>SAÍDA</th><th>PREÇO</th><th>LP</th></tr>
-            </thead>
-            <tbody id="history"></tbody>
-        </table>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
