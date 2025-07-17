@@ -2,46 +2,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sniper Bit - Painel</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sniper Bit</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>SNIPER BIT</h1>
-            <span class="status offline">Desconectado</span>
-        </header>
+  <div class="container">
+    <h1>Sniper Bit</h1>
 
-        <section class="saldo-info">
-            <div>Saldo: <strong>R$ 20,00</strong></div>
-            <div>Lucro: <strong>R$ 0,00</strong></div>
-            <div>Perdas: <strong>R$ 0,00</strong></div>
-            <div>Taxa de Acerto: <strong>0%</strong></div>
-        </section>
-
-        <section class="modo-operacao">
-            <h2>Modo de Operação</h2>
-            <div class="botoes-modo">
-                <button class="ativo">Conservador</button>
-                <button>Moderado</button>
-                <button>Agressivo</button>
-            </div>
-        </section>
-
-        <section class="configuracoes">
-            <div><label>Stake:</label><span>R$ 1,00</span></div>
-            <div><label>Stop Win:</label><span>R$ 2,00</span></div>
-            <div><label>Stop Loss:</label><span>R$ 2,00</span></div>
-        </section>
-
-        <section class="login">
-            <h2>Login na IQ Option</h2>
-            <input type="email" placeholder="Seu e-mail" />
-            <input type="password" placeholder="Sua senha" />
-            <button class="login-btn">Fazer Login</button>
-        </section>
+    <div class="login-box">
+      <input type="email" id="email" placeholder="Email da IQ Option" />
+      <input type="password" id="password" placeholder="Senha" />
+      <button id="loginBtn">Entrar</button>
     </div>
+
+    <div id="status" class="hidden"></div>
+    <div id="balance" class="hidden">
+      Saldo demo: <span id="balanceValue">--</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
