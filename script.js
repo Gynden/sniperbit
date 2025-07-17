@@ -1,61 +1,37 @@
 
-async function fazerLogin() {
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const statusDiv = document.getElementById("status");
+  const balanceDiv = document.getElementById("balance");
+  const balanceValue = document.getElementById("balanceValue");
+
+  if (!email || !password) {
+    statusDiv.innerText = "Preencha todos os campos.";
+    statusDiv.classList.remove("hidden");
+    return;
+  }
+
+  statusDiv.innerText = "Conectando...";
+  statusDiv.classList.remove("hidden");
 
   try {
-    const response = await fetch("https://sniperbit-backend.onrender.com/login", {
+    const response = await fetch("https://iq-connect-api.vercel.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, senha })
+      body: JSON.stringify({ email, password }),
     });
 
     const data = await response.json();
 
-    if (response.ok) {
-      alert("✅ Login realizado com sucesso!");
-      document.getElementById("login").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
-      buscarSaldo();
+    if (data.status === "ok") {
+      balanceValue.innerText = `US$ ${data.balance.toFixed(2)}`;
+      balanceDiv.classList.remove("hidden");
+      statusDiv.innerText = "Login realizado com sucesso!";
     } else {
-      alert("❌ Erro no login: " + (data.mensagem || "verifique os dados."));
+      statusDiv.innerText = "Erro ao fazer login: " + data.message;
     }
-  } catch (error) {
-    alert("❌ Erro de conexão: " + error.message);
+  } catch (err) {
+    statusDiv.innerText = "Erro na conexão com servidor.";
   }
-}
-
-async function buscarSaldo() {
-  try {
-    const response = await fetch("https://sniperbit-backend.onrender.com/saldo");
-    const data = await response.json();
-
-    if (response.ok && data.saldo !== undefined) {
-      document.getElementById("saldo").innerText = `R$ ${data.saldo.toFixed(2)}`;
-    } else {
-      document.getElementById("saldo").innerText = "Erro ao obter saldo";
-    }
-  } catch (error) {
-    document.getElementById("saldo").innerText = "Erro na conexão";
-  }
-}
-
-async function startBot(modo) {
-  try {
-    const response = await fetch("https://sniperbit-backend.onrender.com/operar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ modo })
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert(`🤖 Robô iniciado no modo ${modo.toUpperCase()}`);
-    } else {
-      alert("Erro ao iniciar o robô: " + (data.mensagem || ""));
-    }
-  } catch (error) {
-    alert("Erro de rede: " + error.message);
-  }
-}
+});
